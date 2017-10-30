@@ -1,0 +1,36 @@
+{
+    "name": "pdi-nosql-samples",
+    "version": "1.0.0",
+    "author": {
+        "name": "Adam Fowler",
+        "email": "adam.fowler@hitachivantara.com",
+        "twitter": "@adamfowleruk",
+        "homepage": "http://adamfowler.org/"
+    },
+    "owners": ["adamfowleruk"],
+    "description": "Example PDI Transformations for NoSQL database integration",
+    "homepage": "https://github.com/adamfowleruk/pdi-nosql-samples#readme",
+    "bugs": {
+        "url": "https://github.com/adamfowleruk/pdi-nosql-samples/issues"
+    },
+    "keywords": ["nosql","Pentaho","Hitachi Vantara","pdi","transformations","sample","7.1","REST","MarkLogic","MongoDB"],
+    "pentaho-versions": ["7.1"],
+    "documentation": {
+        "readme": "README.md",
+        "script": "documentation/demo-script.docx",
+        "video": "http://youtube.com/adamfowleruk/pdi-nosql-samples-url-example"
+    },
+    "dependencies": {
+        "pat": "^1.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/adamfowleruk/pdi-nosql-samples.git"
+    },
+    "license": "Apache-2.0",
+    "layout": "cbf2",
+    "languages": ["en","fr"],
+    "scripts": {
+        "postinstall": "scripts/patch-some-random-file-script-no-extension"
+    }
+}
