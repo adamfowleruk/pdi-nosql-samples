@@ -50,7 +50,7 @@
 
 
     "dependencies": {
-        "pat": "^1.0.0"
+        "part": "^1.0.0"
     },
     "layout": "cbf2",
     "languages": ["en","fr"],
