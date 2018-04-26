@@ -46,7 +46,7 @@
       </parameter>
       <parameter>
         <name>marklogic_query</name>
-        <default_value />
+        <default_value/>
         <description>Optoinal Query text to include in the request. Blank for all collection results.</description>
       </parameter>
       <parameter>
@@ -62,12 +62,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -92,37 +92,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -176,11 +176,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -258,10 +258,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -324,10 +324,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -400,10 +400,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -452,9 +452,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -465,7 +465,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>Y</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -829,31 +829,81 @@ and return results</note>
     </hop>
   </order>
   <step>
-    <name>Add multipart</name>
+    <name>Add constants</name>
     <type>Constant</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>pages</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>one</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>256</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Add multipart</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>multipartMixed</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>multipart/mixed</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -869,21 +919,21 @@ and return results</note>
   <step>
     <name>Batch up URIs</name>
     <type>GroupBy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <all_rows>N</all_rows>
     <ignore_aggregate>N</ignore_aggregate>
-    <field_ignore />
+    <field_ignore/>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>grp</prefix>
     <add_linenr>N</add_linenr>
-    <linenr_fieldname />
+    <linenr_fieldname/>
     <give_back_row>N</give_back_row>
     <group>
       <field>
@@ -901,22 +951,22 @@ and return results</note>
         <aggregate>hostName</aggregate>
         <subject>hostName</subject>
         <type>FIRST_INCL_NULL</type>
-        <valuefield />
+        <valuefield/>
       </field>
       <field>
         <aggregate>hostPort</aggregate>
         <subject>hostPort</subject>
         <type>FIRST_INCL_NULL</type>
-        <valuefield />
+        <valuefield/>
       </field>
       <field>
         <aggregate>mldatabase</aggregate>
         <subject>mldatabase</subject>
         <type>FIRST_INCL_NULL</type>
-        <valuefield />
+        <valuefield/>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -932,13 +982,13 @@ and return results</note>
   <step>
     <name>Calc pageCount</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>pageCount</field_name>
@@ -946,9 +996,9 @@ and return results</note>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -964,20 +1014,20 @@ and return results</note>
   <step>
     <name>Check fetch response</name>
     <type>SwitchCase</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fieldname>fetchhttpcode</fieldname>
     <use_contains>N</use_contains>
     <case_value_type>String</case_value_type>
-    <case_value_format />
-    <case_value_decimal />
-    <case_value_group />
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
     <default_target_step>Uh oh 2</default_target_step>
     <cases>
       <case>
@@ -985,7 +1035,7 @@ and return results</note>
         <target_step>Remove temps 3</target_step>
       </case>
     </cases>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1001,20 +1051,20 @@ and return results</note>
   <step>
     <name>Check response</name>
     <type>SwitchCase</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>5</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fieldname>searchHttpcode</fieldname>
     <use_contains>N</use_contains>
     <case_value_type>String</case_value_type>
-    <case_value_format />
-    <case_value_decimal />
-    <case_value_group />
+    <case_value_format/>
+    <case_value_decimal/>
+    <case_value_group/>
     <default_target_step>Uh oh</default_target_step>
     <cases>
       <case>
@@ -1022,7 +1072,7 @@ and return results</note>
         <target_step>Remove temps 2</target_step>
       </case>
     </cases>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1038,15 +1088,15 @@ and return results</note>
   <step>
     <name>Copy rows to result</name>
     <type>RowsToResult</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1062,13 +1112,13 @@ and return results</note>
   <step>
     <name>Create fetch URL</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>fetchUrl</field_name>
@@ -1076,9 +1126,9 @@ and return results</note>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1094,13 +1144,13 @@ and return results</note>
   <step>
     <name>Create page URL</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>searchUrl</field_name>
@@ -1108,9 +1158,9 @@ and return results</note>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1126,13 +1176,13 @@ and return results</note>
   <step>
     <name>Escape URI</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>docuriEscaped</field_name>
@@ -1142,7 +1192,7 @@ and return results</note>
       <value_precision>-1</value_precision>
       <replace_field>docuri</replace_field>
     </formula>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1158,13 +1208,13 @@ and return results</note>
   <step>
     <name>Extract Headers</name>
     <type>RegexEval</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <script>.*Content-Type: (.*)[\r\n]+.*Content-Disposition: .*filename="(.*)".*category=(.*); format=(.*)[\r\n]+.*Content-Length: ([0-9]+)</script>
     <matcher>documentHeaders</matcher>
@@ -1183,70 +1233,70 @@ and return results</note>
       <field>
         <name>contentType</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>1</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
       <field>
         <name>uri</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>2</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
       <field>
         <name>category</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>3</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
       <field>
         <name>format</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>4</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
       <field>
         <name>contentLength</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>5</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1262,16 +1312,16 @@ and return results</note>
   <step>
     <name>Extract URIs</name>
     <type>JsonInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <include>N</include>
-    <include_field />
+    <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1279,11 +1329,11 @@ and return results</note>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <rownum_field />
+    <rownum_field/>
     <file>
-      <name />
-      <filemask />
-      <exclude_filemask />
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1292,10 +1342,10 @@ and return results</note>
         <name>docuri</name>
         <path>$.results[*].uri</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1306,15 +1356,15 @@ and return results</note>
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>searchResponse</valueField>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1330,13 +1380,13 @@ and return results</note>
   <step>
     <name>Extract boundary</name>
     <type>RegexEval</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <script>.*boundary=([A-Z0-9_]*)".*</script>
     <matcher>fetchheader</matcher>
@@ -1355,18 +1405,18 @@ and return results</note>
       <field>
         <name>boundary</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>1</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1382,16 +1432,16 @@ and return results</note>
   <step>
     <name>Extract doc format</name>
     <type>JsonInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <include>N</include>
-    <include_field />
+    <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1399,11 +1449,11 @@ and return results</note>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <rownum_field />
+    <rownum_field/>
     <file>
-      <name />
-      <filemask />
-      <exclude_filemask />
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1412,10 +1462,10 @@ and return results</note>
         <name>contentTypeRaw</name>
         <path>$.['Content-Type']</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1425,10 +1475,10 @@ and return results</note>
         <name>documentFormat</name>
         <path>$.['vnd.marklogic.document-format']</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1439,15 +1489,15 @@ and return results</note>
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>fetchheader</valueField>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1463,16 +1513,16 @@ and return results</note>
   <step>
     <name>Extract total</name>
     <type>JsonInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <include>N</include>
-    <include_field />
+    <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <readurl>N</readurl>
@@ -1480,11 +1530,11 @@ and return results</note>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
     <ignoreMissingPath>Y</ignoreMissingPath>
-    <rownum_field />
+    <rownum_field/>
     <file>
-      <name />
-      <filemask />
-      <exclude_filemask />
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -1494,9 +1544,9 @@ and return results</note>
         <path>$.total</path>
         <type>Integer</type>
         <format>#</format>
-        <currency />
-        <decimal />
-        <group />
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1507,15 +1557,15 @@ and return results</note>
     <IsInFields>Y</IsInFields>
     <IsAFile>N</IsAFile>
     <valueField>response</valueField>
-    <shortFileFieldName />
-    <pathFieldName />
-    <hiddenFieldName />
-    <lastModificationTimeFieldName />
-    <uriNameFieldName />
-    <rootUriNameFieldName />
-    <extensionFieldName />
-    <sizeFieldName />
-    <cluster_schema />
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1531,28 +1581,28 @@ and return results</note>
   <step>
     <name>Fetch document</name>
     <type>Rest</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>10</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <applicationType>JSON</applicationType>
     <method>GET</method>
-    <url />
+    <url/>
     <urlInField>Y</urlInField>
     <dynamicMethod>N</dynamicMethod>
-    <methodFieldName />
+    <methodFieldName/>
     <urlField>fetchurl</urlField>
-    <bodyField />
+    <bodyField/>
     <httpLogin>${marklogic_username}</httpLogin>
     <httpPassword>${marklogic_password}</httpPassword>
-    <proxyHost />
-    <proxyPort />
+    <proxyHost/>
+    <proxyPort/>
     <preemptive>Y</preemptive>
-    <trustStoreFile />
+    <trustStoreFile/>
     <trustStorePassword>Encrypted </trustStorePassword>
     <headers>
       <header>
@@ -1570,7 +1620,7 @@ and return results</note>
       <response_time>fetchresponsetime</response_time>
       <response_header>fetchheader</response_header>
     </result>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1586,28 +1636,28 @@ and return results</note>
   <step>
     <name>Get Pages</name>
     <type>Rest</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
-    <url />
+    <url/>
     <urlInField>Y</urlInField>
     <dynamicMethod>N</dynamicMethod>
-    <methodFieldName />
+    <methodFieldName/>
     <urlField>searchUrl</urlField>
-    <bodyField />
+    <bodyField/>
     <httpLogin>${marklogic_username}</httpLogin>
     <httpPassword>${marklogic_password}</httpPassword>
-    <proxyHost />
-    <proxyPort />
+    <proxyHost/>
+    <proxyPort/>
     <preemptive>Y</preemptive>
-    <trustStoreFile />
+    <trustStoreFile/>
     <trustStorePassword>Encrypted </trustStorePassword>
     <headers>
       </headers>
@@ -1621,7 +1671,7 @@ and return results</note>
       <response_time>searchResponsetime</response_time>
       <response_header>searchResponseheader</response_header>
     </result>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1637,23 +1687,23 @@ and return results</note>
   <step>
     <name>Get Variables</name>
     <type>GetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>pageLength</name>
         <variable>${marklogic_page_length}</variable>
         <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1662,10 +1712,10 @@ and return results</note>
         <name>hostName</name>
         <variable>${marklogic_host}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1674,10 +1724,10 @@ and return results</note>
         <name>hostPort</name>
         <variable>${marklogic_port}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1686,10 +1736,10 @@ and return results</note>
         <name>mlcol</name>
         <variable>${marklogic_collection}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1698,10 +1748,10 @@ and return results</note>
         <name>q</name>
         <variable>${marklogic_query}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1710,16 +1760,16 @@ and return results</note>
         <name>mldatabase</name>
         <variable>${marklogic_database}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1735,28 +1785,28 @@ and return results</note>
   <step>
     <name>Get results count</name>
     <type>Rest</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <applicationType>TEXT PLAIN</applicationType>
     <method>GET</method>
     <url>http://${marklogic_host}:${marklogic_port}/v1/search?format=json&amp;view=results&amp;collection=${marklogic_collection}&amp;pageLength=1&amp;start=${marklogic_start_at}&amp;database=${marklogic_database}&amp;q=${marklogic_query}</url>
     <urlInField>N</urlInField>
     <dynamicMethod>N</dynamicMethod>
-    <methodFieldName />
-    <urlField />
-    <bodyField />
+    <methodFieldName/>
+    <urlField/>
+    <bodyField/>
     <httpLogin>${marklogic_username}</httpLogin>
     <httpPassword>${marklogic_password}</httpPassword>
-    <proxyHost />
-    <proxyPort />
+    <proxyHost/>
+    <proxyPort/>
     <preemptive>Y</preemptive>
-    <trustStoreFile />
+    <trustStoreFile/>
     <trustStorePassword>Encrypted </trustStorePassword>
     <headers>
       </headers>
@@ -1770,7 +1820,7 @@ and return results</note>
       <response_time>responsetime</response_time>
       <response_header>reasponseheader</response_header>
     </result>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1786,30 +1836,30 @@ and return results</note>
   <step>
     <name>Increment startAt</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>startAtFirst</field_name>
       <calc_type>ADD</calc_type>
       <field_a>startAt</field_a>
       <field_b>one</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1825,13 +1875,13 @@ and return results</note>
   <step>
     <name>Mapping input specification</name>
     <type>MappingInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -1842,7 +1892,7 @@ and return results</note>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1858,15 +1908,15 @@ and return results</note>
   <step>
     <name>Mapping output specification</name>
     <type>MappingOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1882,22 +1932,22 @@ and return results</note>
   <step>
     <name>One request per page</name>
     <type>CloneRow</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <nrclones />
+    <nrclones/>
     <addcloneflag>N</addcloneflag>
-    <cloneflagfield />
+    <cloneflagfield/>
     <nrcloneinfield>Y</nrcloneinfield>
     <nrclonefield>pageCount</nrclonefield>
     <addclonenum>Y</addclonenum>
     <clonenumfield>pageNumber</clonenumfield>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1913,13 +1963,13 @@ and return results</note>
   <step>
     <name>Remove temps</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -1936,7 +1986,7 @@ and return results</note>
         <name>responsetime</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1952,13 +2002,13 @@ and return results</note>
   <step>
     <name>Remove temps 2</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -1987,7 +2037,7 @@ and return results</note>
         <name>q</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2003,13 +2053,13 @@ and return results</note>
   <step>
     <name>Remove temps 3</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -2029,7 +2079,7 @@ and return results</note>
         <name>docuris</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2045,13 +2095,13 @@ and return results</note>
   <step>
     <name>Remove temps 4</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -2095,7 +2145,7 @@ and return results</note>
         <name>replacedOutput</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2111,13 +2161,13 @@ and return results</note>
   <step>
     <name>Replace boundary</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>replacedOutput</field_name>
@@ -2125,9 +2175,9 @@ and return results</note>
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2143,22 +2193,22 @@ and return results</note>
   <step>
     <name>Request once</name>
     <type>RowGenerator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>pages</name>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -2167,10 +2217,10 @@ and return results</note>
       <field>
         <name>one</name>
         <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <nullif>1</nullif>
         <length>-1</length>
         <precision>-1</precision>
@@ -2182,7 +2232,7 @@ and return results</note>
     <interval_in_ms>5000</interval_in_ms>
     <row_time_field>now</row_time_field>
     <last_time_field>FiveSecondsAgo</last_time_field>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2198,30 +2248,30 @@ and return results</note>
   <step>
     <name>Set startAt</name>
     <type>Calculator</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <calculation>
       <field_name>startAt</field_name>
       <calc_type>MULTIPLY</calc_type>
       <field_a>pageNumber</field_a>
       <field_b>pageLength</field_b>
-      <field_c />
+      <field_c/>
       <value_type>Integer</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
       <remove>N</remove>
-      <conversion_mask />
-      <decimal_symbol />
-      <grouping_symbol />
-      <currency_symbol />
+      <conversion_mask/>
+      <decimal_symbol/>
+      <grouping_symbol/>
+      <currency_symbol/>
     </calculation>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2237,13 +2287,13 @@ and return results</note>
   <step>
     <name>Split Content/Headers</name>
     <type>RegexEval</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <script>(^.*Content-Length: [0-9]+)(.*$)</script>
     <matcher>documentBodyRow</matcher>
@@ -2262,31 +2312,31 @@ and return results</note>
       <field>
         <name>documentHeaders</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>1</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
       <field>
         <name>documentContent</name>
         <type>String</type>
-        <format />
+        <format/>
         <group>2</group>
-        <decimal />
+        <decimal/>
         <length>-1</length>
         <precision>-1</precision>
-        <nullif />
-        <ifnull />
+        <nullif/>
+        <ifnull/>
         <trimtype>none</trimtype>
-        <currency />
+        <currency/>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2302,22 +2352,22 @@ and return results</note>
   <step>
     <name>Split per document</name>
     <type>SplitFieldToRows3</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <splitfield>replacedOutput</splitfield>
     <delimiter>--PENTAHO_BOUNDARY</delimiter>
     <newfield>documentBodyRow</newfield>
     <rownum>N</rownum>
-    <rownum_field />
+    <rownum_field/>
     <resetrownumber>Y</resetrownumber>
     <delimiter_is_regex>N</delimiter_is_regex>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2333,15 +2383,15 @@ and return results</note>
   <step>
     <name>Uh oh</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2357,15 +2407,15 @@ and return results</note>
   <step>
     <name>Uh oh 2</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2375,56 +2425,6 @@ and return results</note>
     <GUI>
       <xloc>1136</xloc>
       <yloc>416</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Add constants</name>
-    <type>Constant</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <field>
-        <name>pages</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>one</name>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>256</xloc>
-      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
