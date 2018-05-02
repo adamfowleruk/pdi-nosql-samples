@@ -459,11 +459,12 @@ W3C Sparql 1.1 compliant triple store, and parse the result.</note>
     <notepad>
       <note>Tested against MarkLogic Server which doesn't seem to like application/n-triples.
 MarkLogic expects to return application/sparql-results+xml
+Allegrograph works fine with application/sparql-results+xml too (used here)
 Change this for other triple store types.</note>
       <xloc>224</xloc>
       <yloc>304</yloc>
       <width>545</width>
-      <heigth>70</heigth>
+      <heigth>90</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -502,10 +503,73 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
       <drawshadow>Y</drawshadow>
     </notepad>
     <notepad>
-      <note>We're parsing with XML as all SPARQL 1.1 engines seem to support this. Simple example here</note>
+      <note>We're parsing with XML as all SPARQL 1.1 engines seem to support this. Simple parse example here.</note>
       <xloc>224</xloc>
       <yloc>640</yloc>
-      <width>623</width>
+      <width>667</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>If it were a multi-line query, you could also load this from a text file.</note>
+      <xloc>224</xloc>
+      <yloc>112</yloc>
+      <width>459</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Query variable substitution.</note>
+      <xloc>224</xloc>
+      <yloc>224</yloc>
+      <width>191</width>
+      <heigth>30</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
+    <notepad>
+      <note>Now we're tidying up the stream to just leave the data results from the triple store.</note>
+      <xloc>224</xloc>
+      <yloc>720</yloc>
+      <width>555</width>
       <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -541,17 +605,17 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
     </hop>
     <hop>
       <from>Sparql 1.1 Query</from>
-      <to>Remove namespace</to>
+      <to>Remove XML namespace</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remove namespace</from>
+      <from>Remove XML namespace</from>
       <to>Get data from XML</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Get data from XML</from>
-      <to>Select values</to>
+      <to>Select values (Preview me!)</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -654,7 +718,7 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
       </field>
       <field>
         <name>CustomerURI</name>
-        <xpath>//uri</xpath>
+        <xpath>/sparql/results/result/binding/uri</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -669,7 +733,7 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
       </field>
       <field>
         <name>CustomerSurname</name>
-        <xpath>//binding[@name='surname']/literal</xpath>
+        <xpath>/sparql/results/result/binding[@name='surname']/literal</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -684,7 +748,7 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
       </field>
       <field>
         <name>OrderID</name>
-        <xpath>//binding[@name='orderid']/literal</xpath>
+        <xpath>/sparql/results/result/binding[@name='orderid']/literal</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -726,7 +790,7 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
     </GUI>
   </step>
   <step>
-    <name>Remove namespace</name>
+    <name>Remove XML namespace</name>
     <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
@@ -800,7 +864,7 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Select values (Preview me!)</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -813,15 +877,19 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
     <fields>
       <field>
         <name>CustomerURI</name>
+        <rename/>
       </field>
       <field>
         <name>CustomerFirstName</name>
+        <rename/>
       </field>
       <field>
         <name>CustomerSurname</name>
+        <rename/>
       </field>
       <field>
         <name>OrderID</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -948,6 +1016,14 @@ Allegrograph: http://192.168.23.131:10035/repositories/test</note>
   <attributes>
     <group>
       <name>explorerState</name>
+      <attribute>
+        <key>Select values (Preview me!)</key>
+        <value/>
+      </attribute>
+      <attribute>
+        <key>Remove XML namespace</key>
+        <value/>
+      </attribute>
     </group>
   </attributes>
 </transformation>
